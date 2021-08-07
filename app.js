@@ -16,6 +16,5 @@ form.addEventListener('submit', function(e) {
   alert("Form is submitted")
 
   var message = document.getElementById('message')
-
   message.innerText = error
 })

@@ -56,7 +56,6 @@ body {
   transition: 00.25px;
   cursor: pointer;
 }
-
 .box input[type="submit"]:hover {
   background: #106125;
 }
