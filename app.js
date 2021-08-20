@@ -1,20 +1,35 @@
-var form = document.getElementById('form')
-var error = []
-var success = ""
-form.addEventListener('submit', function(e) {
-  e.preventDefault()
+var name;
+var pass;
+var btn = document.getElementById("btn");
 
-  var username = document.getElementById('username')
-  var password = document.getElementById('password')
+function Login(username, password) {
+  this.username = username;
+  this.password = password;
+}
 
-  if (username.value == "") {
-    error.push("please enter the username")
+var users = [
+  new Login("Jama", "123"),
+  new Login("Jama2", "123"),
+  new Login("Jama3", "12"),
+];
+
+btn.addEventListener("click", function () {
+  let name = document.getElementById("name").value;
+  let pass = document.getElementById("password").value;
+  if (name.length <= 0 || pass.length <= 0) {
+    console.log("%c заполните все поля", "background: #222; color: red");}
+  
+  let user = users.find((user) => {
+    if (user.username === name && user.password === pass) {
+      return user;
+    }
+  });
+  if (user === undefined) {
+    console.log(
+      "%c Студент с таким логином не авторизован ",
+      "background: #222; color: yellow"
+    );
+  } else {
+    alert(`${user.username} Добро пожаловать в личный кабинет`);
   }
-  if(password.value == "") {
-    error.push("Please enter the password")
-  }
-  alert("Form is submitted")
-
-  var message = document.getElementById('message')
-  message.innerText = error
-})
+});
